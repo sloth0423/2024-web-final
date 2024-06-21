@@ -1,10 +1,15 @@
 const btnSubmit = document.querySelector("#btnSubmit");
 const inputEmail = document.querySelector("#inputEmail");
+const inputAge = document.querySelector("#inputAge");
+const inputGender = document.querySelector("#inputGender");
+
 const inputPassword = document.querySelector("#inputPassword");
 // inputPassword.addEventListener('input',function (e) {
 
 // });
+// 여기서 부터 바꾸는 부분
 
+// 여기까지 
 
 const email = localStorage.getItem("asdfasdf");
 
@@ -21,6 +26,8 @@ btnSubmit.addEventListener("click", function () {
     body: JSON.stringify({
       email: inputEmail.value,
       password: inputPassword.value,
+      age: inputAge.value,
+      gender: inputGender.value,
     }),
   })
     .then((res) => res.json())
@@ -29,6 +36,9 @@ btnSubmit.addEventListener("click", function () {
       if (result === "success") {
         window.location.replace("/start");
         localStorage.setItem("email",inputEmail.value);
+        localStorage.setItem("password",inputPassword.value);
+        localStorage.setItem("age",inputAge.value);
+        localStorage.setItem("gender",inputGender.value);
       } else if (result === "fail") {
         window.alert("로그인 실패");
         localStorage.getItem("");

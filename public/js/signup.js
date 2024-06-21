@@ -1,7 +1,7 @@
 const signupButton = document.querySelector("#signupButton");
 const inputEmails = document.querySelector("#inputEmails");
 const inputPasswords = document.querySelector("#inputPasswords");
-const inputBirthYear = document.querySelector("#birthYear");
+const inputAge = document.querySelector("#age");
 const inputGender = document.querySelector("#gender");
 // rFN = residentFrontNumbers, rBFN = residentBackFirstNumber
 signupButton.addEventListener("click", function () {
@@ -20,8 +20,8 @@ signupButton.addEventListener("click", function () {
     body: JSON.stringify({
       email: inputEmails.value,
       password: inputPasswords.value,
-      birthYear: inputBirthYear.value,
-      gender: inputGender.value,
+      age: inputAge.value,
+      gender: inputGender.value
     }),
   })
     .then((res) => res.json())
@@ -31,6 +31,5 @@ signupButton.addEventListener("click", function () {
         window.alert("이미 해당 이메일로 만든 계정이 있습니다.");
       }
     });
-    
   window.location.replace("/login");
 });
