@@ -148,7 +148,7 @@ app.get("/population/sinsa", (req, res) => {
   //   sixtiesFemale: "0",
   //   seventiesMale: "0",
   //   seventiesFemale: "0",
-  //   // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+  //   // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지... 포기 그냥 서버가 가지고 있자
   // };
   res.render("population.ejs", sinsa);
 });
@@ -160,52 +160,68 @@ app.get("/api/population/sinsa", (req,res) =>{
 app.post("/api/population/sinsa",(req,res )=> {
   sinsa = { ...sinsa, ...req.body };
   // 여기서 ...은 객체를 병합시키는 연산자라고 함...
-  res.json(sinsa);
+  // res.json(sinsa);
 })
 
+let nonhyeon = {
+  dongTwo: "논현",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
 app.get("/population/nonhyeon", (req, res) => {
-  const nonhyeon = {
-    dongTwo: "논현",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
-  };
   res.render("population.ejs", nonhyeon);
 });
+app.get("/api/population/nonhyeon", (req,res) =>{
+  res.json(nonhyeon);
+})
+app.post("/api/population/nonhyeon",(req,res )=> {
+  nonhyeon = { ...nonhyeon, ...req.body };
+  // 여기서 ...은 객체를 병합시키는 연산자라고 함...
+})
+
+let apgujeong = {
+  dongTwo: "압구정",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
 
 app.get("/population/apgujeong", (req, res) => {
-  const apgujeong = {
-    dongTwo: "압구정",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
-  };
+  
   res.render("population.ejs", apgujeong);
 });
+
+app.get("/api/population/apgujeong", (req,res) =>{
+  res.json(apgujeong);
+})
+app.post("/api/population/apgujeong",(req,res )=> {
+  apgujeong = { ...apgujeong, ...req.body };
+  // 여기서 ...은 객체를 병합시키는 연산자라고 함...
+})
+
 
 app.get("/population/gaepo", (req, res) => {
   const gaepo = {
@@ -224,7 +240,6 @@ app.get("/population/gaepo", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
   };
   res.render("population.ejs", gaepo);
 });
@@ -246,7 +261,7 @@ app.get("/population/samsung", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+    
   };
   res.render("population.ejs", samsung);
 });
@@ -268,7 +283,7 @@ app.get("/population/daechi", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+    
   };
   res.render("population.ejs", daechi);
 });
@@ -290,7 +305,7 @@ app.get("/population/yeonnam", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+    
   };
   res.render("population.ejs", yeonnam);
 });
@@ -312,7 +327,7 @@ app.get("/population/hapjeong", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+    
   };
   res.render("population.ejs", hapjeong);
 });
@@ -334,7 +349,7 @@ app.get("/population/mangwon", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+    
   };
   res.render("population.ejs", mangwon);
 });
@@ -356,7 +371,7 @@ app.get("/population/sangam", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+    
   };
   res.render("population.ejs", sangam);
 });
@@ -378,7 +393,6 @@ app.get("/population/hannam", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
   };
   res.render("population.ejs", hannam);
 });
@@ -400,7 +414,6 @@ app.get("/population/itaewon", (req, res) => {
     sixtiesFemale: "0",
     seventiesMale: "0",
     seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
   };
   res.render("population.ejs", itaewon);
 });
