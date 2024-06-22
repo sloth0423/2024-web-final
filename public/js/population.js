@@ -1,3 +1,18 @@
+
+
+
+
+
+
+// 여기다가 ejs에 연결될 js코드를 적고 연결 시키려고 했는데 ejs에서 못 찾아서 
+// 그냥 ejs파일의 script태그 안에 적음
+
+
+
+
+
+
+
 // const selectLoc = document.querySelector("#selectLoc");
 
 //       selectLoc.addEventListener("click", function () {
@@ -18,15 +33,15 @@
 //           }
 //         }
 //       });
-const selectLoc = document.querySelector("#selectLoc");
+// const selectLoc = document.querySelector("#selectLoc");
 
-selectLoc.addEventListener("click", function () {
-  const savedEmail = localStorage.getItem("email");
-  const savedPassword = localStorage.getItem("password");
-  const savedAge = localStorage.getItem("age");
-  const savedGender = localStorage.getItem("gender");
+// selectLoc.addEventListener("click", function () {
+//   const savedEmail = sessionStorage.getItem("email");
+//   const savedPassword = sessionStorage.getItem("password");
+//   const savedAge = sessionStorage.getItem("age");
+//   const savedGender = sessionStorage.getItem("gender");
 
-  if (savedAge> 10 && savedAge <= 20 || savedGender == "남자"){
-    console.log("성공!");
-  }
-});
+//   if (savedAge> 10 && savedAge <= 20 || savedGender == "남자"){
+//     console.log("성공!");
+//   }
+// });

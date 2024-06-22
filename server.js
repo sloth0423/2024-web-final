@@ -1,7 +1,7 @@
 const express = require("express");
 const { createHmac } = require("node:crypto");
 const userInfo = require("./userinfo.js");
-const populationInfo = require("./populationinfo.js");
+// const populationInfo = require("./populationinfo.js");
 
 // const qs = require('qs');
 const app = express();
@@ -14,6 +14,10 @@ app.use(express.json());
 
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/public/html/login.html");
+});
+
+app.get("/findpassword", (req, res) => {
+  res.sendFile(__dirname + "/public/html/findpassword.html");
 });
 
 app.get("/signup", (req, res) => {
@@ -112,7 +116,7 @@ app.get("/locationinfo/yongsan", (req, res) => {
   res.render("locationinfo", yongsanDong);
 });
 
-let sinsa = {
+var sinsa = {
   dongTwo: "신사",
   teensMale: "0",
   teensFemale: "0",
@@ -160,10 +164,10 @@ app.get("/api/population/sinsa", (req,res) =>{
 app.post("/api/population/sinsa",(req,res )=> {
   sinsa = { ...sinsa, ...req.body };
   // 여기서 ...은 객체를 병합시키는 연산자라고 함...
-  // res.json(sinsa);
+  res.json(sinsa);
 })
 
-let nonhyeon = {
+var nonhyeon = {
   dongTwo: "논현",
   teensMale: "0",
   teensFemale: "0",
@@ -189,9 +193,10 @@ app.get("/api/population/nonhyeon", (req,res) =>{
 app.post("/api/population/nonhyeon",(req,res )=> {
   nonhyeon = { ...nonhyeon, ...req.body };
   // 여기서 ...은 객체를 병합시키는 연산자라고 함...
+  res.json(nonhyeon);
 })
 
-let apgujeong = {
+var apgujeong = {
   dongTwo: "압구정",
   teensMale: "0",
   teensFemale: "0",
@@ -220,201 +225,206 @@ app.get("/api/population/apgujeong", (req,res) =>{
 app.post("/api/population/apgujeong",(req,res )=> {
   apgujeong = { ...apgujeong, ...req.body };
   // 여기서 ...은 객체를 병합시키는 연산자라고 함...
+  res.json(apgujeong);
 })
 
+var gaepo = {
+  dongTwo: "개포",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
 
 app.get("/population/gaepo", (req, res) => {
-  const gaepo = {
-    dongTwo: "개포",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-  };
+  
   res.render("population.ejs", gaepo);
 });
 
+var samsung = {
+  dongTwo: "삼성",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+  
+};
 app.get("/population/samsung", (req, res) => {
-  const samsung = {
-    dongTwo: "삼성",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    
-  };
+  
   res.render("population.ejs", samsung);
 });
 
+var daechi = {
+  dongTwo: "대치",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+  
+};
 app.get("/population/daechi", (req, res) => {
-  const daechi = {
-    dongTwo: "대치",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    
-  };
+  
   res.render("population.ejs", daechi);
 });
 
+var yeonnam = {
+  dongTwo: "연남",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
 app.get("/population/yeonnam", (req, res) => {
-  const yeonnam = {
-    dongTwo: "연남",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    
-  };
   res.render("population.ejs", yeonnam);
 });
 
+var hapjeong = {
+  dongTwo: "합정",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
+
 app.get("/population/hapjeong", (req, res) => {
-  const hapjeong = {
-    dongTwo: "합정",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    
-  };
   res.render("population.ejs", hapjeong);
 });
 
+var mangwon = {
+  dongTwo: "망원",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
+
 app.get("/population/mangwon", (req, res) => {
-  const mangwon = {
-    dongTwo: "망원",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    
-  };
   res.render("population.ejs", mangwon);
 });
 
+var sangam = {
+  dongTwo: "상암",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
+
 app.get("/population/sangam", (req, res) => {
-  const sangam = {
-    dongTwo: "상암",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    
-  };
   res.render("population.ejs", sangam);
 });
 
+var hannam = {
+  dongTwo: "한남",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
+
 app.get("/population/hannam", (req, res) => {
-  const hannam = {
-    dongTwo: "한남",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-  };
   res.render("population.ejs", hannam);
 });
 
+var itaewon = {
+  dongTwo: "이태원",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0", 
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
+
 app.get("/population/itaewon", (req, res) => {
-  const itaewon = {
-    dongTwo: "이태원",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-  };
   res.render("population.ejs", itaewon);
 });
 
@@ -475,6 +485,7 @@ app.post("/signup", (req, res) => {
   } else {
     let personInfo = {
       email: emails,
+      realpassword: passwords,
       password: hash,
       age: ages,
       gender: genders,
@@ -486,7 +497,16 @@ app.post("/signup", (req, res) => {
   // birthYears,genders  변수들 잘 조작해야함
 });
 
-
+app.post("/findpassword",(req,res)=>{
+  const putEmail = req.body.email;
+  let hasArrayWithEmails = userInfo.some((userInfo) => userInfo.email === putEmail);
+  let ElimentWithEmails = userInfo.find((userInfo) => userInfo.email === putEmail);
+  if(hasArrayWithEmails){
+    res.json({result:`${ElimentWithEmails.realpassword}`});
+  } else {
+    res.json({ result: "fail" });
+  }
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

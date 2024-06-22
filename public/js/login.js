@@ -11,7 +11,7 @@ const inputPassword = document.querySelector("#inputPassword");
 
 // 여기까지 
 
-const email = localStorage.getItem("asdfasdf");
+// const email = localStorage.getItem("asdfasdf");
 
 btnSubmit.addEventListener("click", function () {
   // 입력된 이메일과 비밀번호 가져오기
@@ -35,13 +35,14 @@ btnSubmit.addEventListener("click", function () {
       const result = json.result;
       if (result === "success") {
         window.location.replace("/start");
-        localStorage.setItem("email",inputEmail.value);
-        localStorage.setItem("password",inputPassword.value);
-        localStorage.setItem("age",inputAge.value);
-        localStorage.setItem("gender",inputGender.value);
+        sessionStorage.setItem("resetOnOff", 2);
+        sessionStorage.setItem("email",inputEmail.value);
+        sessionStorage.setItem("password",inputPassword.value);
+        sessionStorage.setItem("age",inputAge.value);
+        sessionStorage.setItem("gender",inputGender.value);
       } else if (result === "fail") {
         window.alert("로그인 실패");
-        localStorage.getItem("");
+        sessionStorage.getItem("");
       }
     });
 });

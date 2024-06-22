@@ -10,11 +10,34 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+      .title{
+      margin-top: 3px;
+      margin-left:3%;
+    }
+    .infoTextDiv{
+      text-align: center;
+      margin-top: 17vh;
+    }
+    .infoText{
+      font-size:23px;
+    }
+    .selectLocDiv{
+      margin-top: 5vh ;
+      text-align: center;
+    }
+    .cancelDiv{
+      margin-top: 2vh;
+      text-align: center;
+    }
+    </style>
   </head>
   <body>
+    <div class = "title">
     <h1>서울 핫플 찾기</h1>
-    <div>
-      <p>
+  </div>
+    <div class = "infoTextDiv">
+      <p class = "infoText">
         <%=dongTwo%>동에는 <br />
         10~20살의 남성이 <%=teensMale%>명, 10~20살의 여성이
         <%=teensFemale%>명,<br />
@@ -39,10 +62,14 @@
         비밀번호 찾기 이정도?
         -->
     </div>
-    <div>
-      <button type="button" class="btn btn-warning">취소하기</button>
+    <div class = "selectLocDiv">
       <button type="button" id="selectLoc" class="btn btn-success">
         지역선택하기
+      </button>
+    </div>
+    <div class = "cancelDiv">
+      <button type="button" id="cancel" class="btn btn-warning">
+        취소하기
       </button>
     </div>
     <script
@@ -53,14 +80,19 @@
     <script>
       // 자꾸 경로를 잘못 설정하는지 js파일을 못 찾길래 그냥 script 태그에 적음
       const selectLoc = document.querySelector("#selectLoc");
+      const cancel = document.querySelector("#cancel");
 
-      const savedEmail = localStorage.getItem("email");
-      const savedPassword = localStorage.getItem("password");
-      const savedAge = localStorage.getItem("age");
-      const savedGender = localStorage.getItem("gender");
+      const savedEmail = sessionStorage.getItem("email");
+      const savedPassword = sessionStorage.getItem("password");
+      const savedAge = sessionStorage.getItem("age");
+      const savedGender = sessionStorage.getItem("gender");
       const currentURL = window.location.href;
       const currentLoc = currentURL.slice(currentURL.lastIndexOf("/") + 1);
-      localStorage.setItem("currentLoc",currentLoc);
+      sessionStorage.setItem("currentLoc", currentLoc);
+
+      cancel.addEventListener("click", function () {
+        window.location.replace("/locationinfo");
+      });
       // lastIndexOf 함수는 문자열에서 해당 문자에 해당하는 마지막 문자를 가리킨다고 함
       // console.log(typeof currentLoc);
       // console.log(currentLoc);
@@ -85,6 +117,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 10 &&
@@ -104,6 +140,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 20 &&
@@ -123,6 +163,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 20 &&
@@ -142,6 +186,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 30 &&
@@ -161,6 +209,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 30 &&
@@ -180,6 +232,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 40 &&
@@ -199,6 +255,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 40 &&
@@ -218,6 +278,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 50 &&
@@ -237,6 +301,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 50 &&
@@ -256,6 +324,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 60 &&
@@ -275,6 +347,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 60 &&
@@ -294,6 +370,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 70 &&
@@ -313,6 +393,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 70 &&
@@ -332,6 +416,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 10 &&
@@ -353,6 +441,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 10 &&
@@ -372,6 +464,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 20 &&
@@ -391,6 +487,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 20 &&
@@ -410,6 +510,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 30 &&
@@ -429,6 +533,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 30 &&
@@ -448,6 +556,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 40 &&
@@ -467,6 +579,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 40 &&
@@ -486,6 +602,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 50 &&
@@ -505,6 +625,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 50 &&
@@ -524,6 +648,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 60 &&
@@ -543,6 +671,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 60 &&
@@ -562,6 +694,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 70 &&
@@ -581,6 +717,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 70 &&
@@ -600,6 +740,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 10 &&
@@ -621,6 +765,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 10 &&
@@ -640,6 +788,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 20 &&
@@ -659,6 +811,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 20 &&
@@ -678,6 +834,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 30 &&
@@ -697,6 +857,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 30 &&
@@ -716,6 +880,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 40 &&
@@ -735,6 +903,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 40 &&
@@ -754,6 +926,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 50 &&
@@ -773,6 +949,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 50 &&
@@ -792,6 +972,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 60 &&
@@ -811,6 +995,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 60 &&
@@ -830,6 +1018,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 70 &&
@@ -849,6 +1041,10 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         } else if (
           savedAge > 70 &&
@@ -868,8 +1064,15 @@
                 },
                 body: JSON.stringify(data),
               });
+            })
+            .then((response) => response.json())
+            .then((updatedData) => {
+              console.log("Updated Data:", updatedData);
             });
         }
+        sessionStorage.setItem("resetOnOff", 1);
+        console.log("올리는게 문젠가?");
+        window.location.replace("/start");
       });
     </script>
   </body>

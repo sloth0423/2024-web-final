@@ -10,9 +10,12 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../css/login.css">
   </head>
   <body>
+    <div class = "title">
     <h1>서울 핫플 찾기</h1>
+  </div>
     <div class="container">
       <div class="mb-3">
         <label for="inputEmail" class="form-label">이메일</label>
@@ -50,20 +53,19 @@
           placeholder="남성 or 여성"
         />
       </div>
-      <div>
+      <div class = "linkedButton">
         <button id="btnSubmit" type="button" class="btn btn-primary">
           로그인
         </button>
       </div>
-      </div>
-      <div>
+      <div id = "linkedNav">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="/signup">회원가입</a>
             <!-- href에 비밀번호 사이트 링크-->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">비밀번호 찾기</a>
+            <a class="nav-link" href="/findpassword">비밀번호 찾기</a>
             <!-- href에 비밀번호 사이트 링크-->
           </li>
         </ul>
