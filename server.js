@@ -112,28 +112,56 @@ app.get("/locationinfo/yongsan", (req, res) => {
   res.render("locationinfo", yongsanDong);
 });
 
+let sinsa = {
+  dongTwo: "신사",
+  teensMale: "0",
+  teensFemale: "0",
+  twentiesMale: "0",
+  twentiesFemale: "0",
+  thirtiesMale: "0",
+  thirtiesFemale: "0",
+  fortiesMale: "0",
+  fortiesFemale: "0",
+  fiftiesMale: "0",
+  fiftiesFemale: "0",
+  sixtiesMale: "0",
+  sixtiesFemale: "0",
+  seventiesMale: "0",
+  seventiesFemale: "0",
+};
+
 app.get("/population/sinsa", (req, res) => {
   // 여기서부터 다시 해야함-----------------------------------------------
-  const sinsa = {
-    dongTwo: "신사",
-    teensMale: "0",
-    teensFemale: "0",
-    twentiesMale: "0",
-    twentiesFemale: "0",
-    thirtiesMale: "0",
-    thirtiesFemale: "0",
-    fortiesMale: "0",
-    fortiesFemale: "0",
-    fiftiesMale: "0",
-    fiftiesFemale: "0",
-    sixtiesMale: "0",
-    sixtiesFemale: "0",
-    seventiesMale: "0",
-    seventiesFemale: "0",
-    // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
-  };
+  // const sinsa = {
+  //   dongTwo: "신사",
+  //   teensMale: "0",
+  //   teensFemale: "0",
+  //   twentiesMale: "0",
+  //   twentiesFemale: "0",
+  //   thirtiesMale: "0",
+  //   thirtiesFemale: "0",
+  //   fortiesMale: "0",
+  //   fortiesFemale: "0",
+  //   fiftiesMale: "0",
+  //   fiftiesFemale: "0",
+  //   sixtiesMale: "0",
+  //   sixtiesFemale: "0",
+  //   seventiesMale: "0",
+  //   seventiesFemale: "0",
+  //   // 여기다가 DB?의 값들을 넣어야 하는데 할 수 있겠지...
+  // };
   res.render("population.ejs", sinsa);
 });
+
+app.get("/api/population/sinsa", (req,res) =>{
+  res.json(sinsa);
+})
+
+app.post("/api/population/sinsa",(req,res )=> {
+  sinsa = { ...sinsa, ...req.body };
+  // 여기서 ...은 객체를 병합시키는 연산자라고 함...
+  res.json(sinsa);
+})
 
 app.get("/population/nonhyeon", (req, res) => {
   const nonhyeon = {
@@ -444,6 +472,8 @@ app.post("/signup", (req, res) => {
   // console.log(userInfo);
   // birthYears,genders  변수들 잘 조작해야함
 });
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
